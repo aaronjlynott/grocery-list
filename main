@@ -1,0 +1,19 @@
+#prompt user for grocery item - until user control d
+#output a list of items with total numbers of items at beginning, capitalize everything and sort alpha
+
+grocery_list = {}
+
+while True:
+    try:
+#create a list, it item is not in list then add it, otherwise +1 - sort and capitalize the list
+        groc_item = input()
+
+        if groc_item in grocery_list:
+            grocery_list[groc_item] += 1
+        else:
+            grocery_list[groc_item] = 1
+
+    except EOFError:
+        for key in sorted(grocery_list.keys()):
+            print(grocery_list[key], key.upper())
+        break
